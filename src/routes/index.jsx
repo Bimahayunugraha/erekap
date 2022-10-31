@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LandingPage from "../Guest/LandingPage";
+import LandingPage from "../pages/Guest/LandingPage";
 
 const SetupRouter = () => {
 	return (
