@@ -1,5 +1,6 @@
 import React from "react";
 import ContactUs from "../../components/Guest/ContactUs";
+import Footer from "../../components/Guest/Footer";
 import Hero from "../../components/Guest/Hero";
 import Navbar from "../../components/Guest/Navbar";
 import Service from "../../components/Guest/Service";
@@ -18,6 +19,7 @@ const LandingPage = () => {
 				<section id="contact">
 					<ContactUs />
 				</section>
+				<Footer />
 			</main>
 		</>
 	);
