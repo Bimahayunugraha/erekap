@@ -1,4 +1,5 @@
 import React from "react";
+import ContactUs from "../../components/Guest/ContactUs";
 import Hero from "../../components/Guest/Hero";
 import Navbar from "../../components/Guest/Navbar";
 import Service from "../../components/Guest/Service";
@@ -13,6 +14,9 @@ const LandingPage = () => {
 				</section>
 				<section id="service">
 					<Service />
+				</section>
+				<section id="contact">
+					<ContactUs />
 				</section>
 			</main>
 		</>
