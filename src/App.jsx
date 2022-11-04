@@ -1,7 +1,12 @@
 import "./App.css";
+import SetupRouter from "./routes";
 
 function App() {
-	return <></>;
+	return (
+		<>
+			<SetupRouter />
+		</>
+	);
 }
 
 export default App;
