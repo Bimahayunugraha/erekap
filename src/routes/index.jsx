@@ -11,6 +11,7 @@ import SiswaPage from "../pages/Admin/SiswaPage";
 import MataPelajaranPage from "../pages/Admin/MataPelajaranPage";
 import GuruPage from "../pages/Admin/GuruPage";
 import PelajaranDiampuPage from "../pages/Admin/PelajaranDiampuPage";
+import CreatePelajaranDiampuPage from "../pages/Admin/CreatePelajaranDiampuPage";
 
 const SetupRouter = () => {
 	return (
@@ -26,6 +27,7 @@ const SetupRouter = () => {
 						<Route path="/admin/data/mata-pelajaran" element={<MataPelajaranPage />} />
 						<Route path="/admin/data/guru" element={<GuruPage />} />
 						<Route path="/admin/data/pelajaran/diampu" element={<PelajaranDiampuPage />} />
+						<Route path="/admin/tambah/pelajaran/diampu" element={<CreatePelajaranDiampuPage />} />
 					</Route>
 					<Route path="*" element={<NotFound />} />
 				</Routes>

@@ -9,7 +9,7 @@ const PelajaranDiampuList = () => {
 		<div className="container mx-auto py-6 px-2">
 			<div className="flex flex-wrap">
 				<div className="w-full px-4 lg:w-1/2 xl:w-1/5">
-					<Link to="/admin/tambah/pelajaran">
+					<Link to="/admin/tambah/pelajaran/diampu">
 						<div className="mb-10 cursor-pointer rounded-md border border-gray-100 p-10 text-center">
 							<div className="inline-block items-center justify-center">
 								<PlusIcon className="h-6 w-6 text-gray-600" />
