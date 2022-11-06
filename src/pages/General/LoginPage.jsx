@@ -72,8 +72,8 @@ const LoginPage = () => {
 					() =>
 						Alert.fire({
 							icon: "error",
-							title: <strong>Error</strong>,
-							text: "Password salah",
+							title: <strong>Maaf!</strong>,
+							text: "Password yang Anda masukkan salah",
 							background: "#fef2f2",
 							confirmButtonColor: "#fecaca",
 						}),
@@ -85,8 +85,8 @@ const LoginPage = () => {
 					() =>
 						Alert.fire({
 							icon: "error",
-							title: <strong>Error</strong>,
-							text: "Email belum terdaftar",
+							title: <strong>Maaf!</strong>,
+							text: "Email yang Anda masukkan belum terdaftar, mohon registrasi terlebih dahulu",
 							background: "#fef2f2",
 							confirmButtonColor: "#fecaca",
 						}),
