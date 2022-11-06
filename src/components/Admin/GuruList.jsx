@@ -1,4 +1,5 @@
 import React from "react";
+import GuruListItem from "./GuruListItem";
 
 const GuruList = () => {
 	return (
@@ -24,6 +25,7 @@ const GuruList = () => {
 							</th>
 						</tr>
 					</thead>
+					<GuruListItem />
 				</table>
 			</div>
 		</div>
