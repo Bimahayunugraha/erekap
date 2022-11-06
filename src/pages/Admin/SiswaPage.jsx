@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { PlusIcon } from "@heroicons/react/24/outline";
 import SiswaList from "../../components/Admin/SiswaList";
+import ModalCreateSiswa from "../../components/Admin/ModalCreateSiswa";
 
 const SiswaPage = () => {
 	const [modalTrigger, setModalTrigger] = useState(false);
@@ -22,6 +23,7 @@ const SiswaPage = () => {
 				</button>
 			</div>
 			<SiswaList />
+			{modalTrigger && <ModalCreateSiswa handleModalTrigger={handleModalTrigger} modalTrigger={modalTrigger} />}
 		</div>
 	);
 };
