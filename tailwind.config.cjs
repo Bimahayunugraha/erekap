@@ -16,9 +16,6 @@ module.exports = {
 			screens: {
 				"2xl": "1320px",
 			},
-			backgroundImage: {
-				bgHero: "url('./src/assets/img/jpg/bg-hero.jpg')",
-			},
 		},
 	},
 	plugins: [require("flowbite/plugin")],
