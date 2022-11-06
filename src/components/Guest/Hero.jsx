@@ -5,7 +5,7 @@ import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 const Hero = () => {
 	return (
-		<div className="relative z-[3] flex min-h-[100vh] w-full items-center bg-bgHero bg-cover bg-center before:absolute before:inset-0 before:bg-gray-700 before:bg-opacity-60 lg:bg-fixed lg:before:bg-gray-800 lg:before:bg-opacity-[0.7] lg:after:absolute lg:after:top-0 lg:after:bottom-0 lg:after:w-[40%] lg:after:bg-dark">
+		<div className="hero-container relative z-[3] flex min-h-[100vh] w-full items-center bg-cover bg-center bg-no-repeat before:absolute before:inset-0 before:bg-gray-700 before:bg-opacity-60 lg:bg-fixed lg:before:bg-gray-800 lg:before:bg-opacity-[0.7] lg:after:absolute lg:after:top-0 lg:after:bottom-0 lg:after:w-[40%] lg:after:bg-dark">
 			<div className="container z-[1]">
 				<div className="grid lg:grid-cols-3 xl:grid-cols-3">
 					<div className="w-full self-center px-4">
