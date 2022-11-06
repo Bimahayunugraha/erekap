@@ -2,6 +2,7 @@ import React from "react";
 
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import PenilaianDetailItem from "../../components/Guru/PenilaianDetailItem";
 
 const PenilaianDetailPage = () => {
 	return (
@@ -36,6 +37,7 @@ const PenilaianDetailPage = () => {
 										</th>
 									</tr>
 								</thead>
+								<PenilaianDetailItem />
 							</table>
 						</div>
 					</div>
