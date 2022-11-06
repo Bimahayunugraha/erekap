@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { auth } from "../configs/firebase";
 
-export default function useUserAuth() {
+export default function useAuth() {
 	const [user, setUser] = useState(auth.currentUser);
 	const [loading, setLoading] = useState(true);
 
