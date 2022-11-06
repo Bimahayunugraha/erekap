@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import ModalInputNilai from "./ModalInputNilai";
 
 const PenilaianDetailItem = () => {
 	const [inputNilaiModalTrigger, setInputNilaiModalTrigger] = useState(false);
@@ -22,6 +23,7 @@ const PenilaianDetailItem = () => {
 							<PlusCircleIcon className="h-6 w-6 text-blue-600 transition duration-75 hover:text-blue-700" />
 						</button>
 					</div>
+					{inputNilaiModalTrigger && <ModalInputNilai handleInputNilaiModalTrigger={handleInputNilaiModalTrigger} />}
 				</td>
 			</tr>
 		</tbody>
