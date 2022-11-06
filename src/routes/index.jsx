@@ -32,13 +32,13 @@ const SetupRouter = () => {
 					/>
 				</Helmet>
 				<Routes>
-					<Route element={<ProtectedRouter />}>
-						<Route path="/" element={<LandingPage />} />
+					<Route path="/" element={<ProtectedRouter />}>
+						<Route index element={<LandingPage />} />
 						<Route path="/login" element={<LoginPage />} />
 						<Route path="/register" element={<RegisterPage />} />
 					</Route>
-					<Route element={<PrivateRouter />}>
-						<Route path="/" element={<Layout />}>
+					<Route path="/" element={<PrivateRouter />}>
+						<Route element={<Layout />}>
 							<Route path="/dashboard" element={<DashboardPage />} />
 							<Route path="/admin/data/siswa" element={<SiswaPage />} />
 							<Route path="/admin/data/mata-pelajaran" element={<MataPelajaranPage />} />
