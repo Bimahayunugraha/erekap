@@ -1,8 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { AddMataPelajaran } from "../../graphqls/typeDefs/mataPelajaran.graphql";
+import Swal from "sweetalert2";
 
 const ModalCreateMataPelajaran = ({ handleModalCreateTrigger }) => {
+	const mataPelajaranData = {
+		nama_pelajaran: "",
+	};
+
+	const [data, setData] = useState(mataPelajaranData);
+	const [addMataPelajaran] = useMutation(AddMataPelajaran, {
+		onError: () => {
+			setTimeout(
+				() =>
+					Swal.fire({
+						icon: "error",
+						title: "Gagal menambahkan data, nama pelajaran tidak boleh sama",
+						showConfirmButton: false,
+						timer: 2000,
+						background: "#fefefe",
+					}),
+				1000
+			);
+		},
+		onCompleted: () => {
+			setTimeout(
+				() =>
+					Swal.fire({
+						icon: "success",
+						title: "Data mata pelajaran berhasil ditambahkan",
+						showConfirmButton: false,
+						timer: 1500,
+						background: "#fefefe",
+					}),
+				1000
+			);
+		},
+	});
+
+	const tambahMataPelajaran = (newMataPelajaran) => {
+		addMataPelajaran({
+			variables: {
+				...newMataPelajaran,
+			},
+		});
+	};
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setData({
+			...data,
+			[name]: value,
+		});
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		if (data.nama_pelajaran !== "") {
+			const newData = {
+				nama_pelajaran: data.nama_pelajaran,
+			};
+
+			tambahMataPelajaran(newData);
+			handleModalCreateTrigger();
+
+			setData(mataPelajaranData);
+		} else {
+			alert("Terdapat data yang kosong");
+		}
+	};
+
 	return (
 		<div className="relative z-50">
 			<div className="fixed inset-0 z-50 bg-gray-400 bg-opacity-50 transition-opacity"></div>
@@ -10,7 +80,7 @@ const ModalCreateMataPelajaran = ({ handleModalCreateTrigger }) => {
 			<div className="fixed inset-0 z-50 items-center justify-center overflow-y-auto">
 				<div className="flex w-full items-end justify-center py-20 sm:h-full sm:items-center sm:p-0 md:h-screen">
 					<div className="relative w-full max-w-xs">
-						<form className="rounded-lg bg-white shadow">
+						<form onSubmit={handleSubmit} className="rounded-lg bg-white shadow">
 							<div className="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600">
 								<h3 className="p-1.5 text-xl font-semibold text-gray-900 dark:text-white">Tambah Mata Pelajaran</h3>
 								<button
@@ -33,6 +103,8 @@ const ModalCreateMataPelajaran = ({ handleModalCreateTrigger }) => {
 										className="block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
 										placeholder="Masukkan nama pelajaran"
 										required
+										value={data.nama_pelajaran}
+										onChange={handleChange}
 									/>
 								</div>
 							</div>
