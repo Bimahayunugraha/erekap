@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import logoNotFound from "../assets/img/svg/not-found.svg";
+import logoNotFound from "../../assets/img/svg/not-found.svg";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 const NotFound = () => {
