@@ -26,7 +26,7 @@ const Sidebar = () => {
 					</li>
 					<li>
 						<NavLink
-							to="/admin/siswa"
+							to="/admin/data/siswa"
 							className={({ isActive }) =>
 								isActive
 									? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
@@ -38,7 +38,7 @@ const Sidebar = () => {
 					</li>
 					<li>
 						<NavLink
-							to="/admin/mata-pelajaran"
+							to="/admin/data/mata-pelajaran"
 							className={({ isActive }) =>
 								isActive
 									? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
@@ -50,7 +50,7 @@ const Sidebar = () => {
 					</li>
 					<li>
 						<NavLink
-							to="/admin/guru"
+							to="/admin/data/guru"
 							className={({ isActive }) =>
 								isActive
 									? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
@@ -62,7 +62,7 @@ const Sidebar = () => {
 					</li>
 					<li>
 						<NavLink
-							to="/admin/pelajaran/diampu"
+							to="/admin/data/pelajaran/diampu"
 							className={({ isActive }) =>
 								isActive
 									? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
