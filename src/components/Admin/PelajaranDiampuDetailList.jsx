@@ -1,9 +1,14 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { getInitialName } from "../../utils/getInitialName";
 
 const PelajaranDiampuDetailList = ({ dataSiswa, dataGuru }) => {
 	return (
 		<div className="container mx-auto py-6 px-6">
+			<Helmet>
+				<title>{`Detail Pelajaran Diampu - ${dataGuru?.mata_pelajaran.nama_pelajaran}`}</title>
+				<meta name="description" content="Penilaian siswa" />
+			</Helmet>
 			<div className="block max-w-sm rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:bg-gray-100">
 				<h5 className="mb-2 text-base font-bold tracking-tight text-gray-900 dark:text-white lg:text-xl">
 					{dataGuru?.mata_pelajaran.nama_pelajaran}

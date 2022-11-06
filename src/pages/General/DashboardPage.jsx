@@ -6,6 +6,7 @@ import imgGuru from "../../assets/img/png/img-guru.png";
 import OverviewData from "../../components/Admin/OverviewData";
 import { PulseLoader } from "react-spinners";
 import useUser from "../../hooks/useUser";
+import { Helmet } from "react-helmet";
 
 const DashboardPage = () => {
 	const { id } = useParams();
@@ -20,6 +21,10 @@ const DashboardPage = () => {
 			)}
 			{role == "admin" && (
 				<div>
+					<Helmet>
+						<title>Dashboard Admin</title>
+						<meta name="description" content="Penilaian siswa" />
+					</Helmet>
 					<div className="flex items-center border-b border-gray-200 bg-white px-6 py-3">
 						<h2 className="text-xl font-bold text-gray-800">Dashboard</h2>
 					</div>
@@ -42,6 +47,10 @@ const DashboardPage = () => {
 
 			{role == "guru" && (
 				<div>
+					<Helmet>
+						<title>Dashboard Guru</title>
+						<meta name="description" content="Penilaian siswa" />
+					</Helmet>
 					<div className="flex items-center border-b border-gray-200 bg-white px-6 py-3">
 						<h2 className="text-xl font-bold text-gray-800">Dashboard</h2>
 					</div>

@@ -8,6 +8,7 @@ import { GetSiswa } from "../../graphqls/typeDefs/siswa.graphql";
 import { GetGuru } from "../../graphqls/typeDefs/guru.graphql";
 import { PulseLoader } from "react-spinners";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const PelajaranDiampuInput = () => {
 	const [data, setData] = useState([]);
@@ -83,6 +84,10 @@ const PelajaranDiampuInput = () => {
 
 	return (
 		<div className="h-full overflow-y-auto">
+			<Helmet>
+				<title>Tambah Pelajaran Diampu</title>
+				<meta name="description" content="Penilaian siswa" />
+			</Helmet>
 			<div className="container mx-auto py-6 px-6">
 				<form onSubmit={handleSubmit}>
 					<div className="grid grid-cols-6 gap-6">
@@ -165,7 +170,6 @@ const PelajaranDiampuInput = () => {
 															onChange={handleChange}
 															value={item.id}
 															multiple
-															required
 														/>
 														<label htmlFor="siswa_id" className="sr-only">
 															{item.nama_depan} {item.nama_belakang}

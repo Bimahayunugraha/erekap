@@ -27,7 +27,8 @@ const ModalCreateSiswa = ({ handleModalCreateTrigger }) => {
 				() =>
 					Swal.fire({
 						icon: "error",
-						title: "Nama siswa tidak boleh sama",
+						title: "Gagal menambahkan data",
+						text: "Nama siswa tidak boleh sama",
 						showConfirmButton: false,
 						timer: 2000,
 						background: "#fefefe",

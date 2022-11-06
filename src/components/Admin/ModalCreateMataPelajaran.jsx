@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { AddMataPelajaran } from "../../graphqls/typeDefs/mataPelajaran.graphql";
+import { AddMataPelajaran, GetMataPelajaran } from "../../graphqls/typeDefs/mataPelajaran.graphql";
 import Swal from "sweetalert2";
 
 const ModalCreateMataPelajaran = ({ handleModalCreateTrigger }) => {
@@ -17,7 +17,8 @@ const ModalCreateMataPelajaran = ({ handleModalCreateTrigger }) => {
 				() =>
 					Swal.fire({
 						icon: "error",
-						title: "Gagal menambahkan data, nama pelajaran tidak boleh sama",
+						title: "Gagal menambahkan data",
+						text: "Nama pelajaran tidak boleh sama",
 						showConfirmButton: false,
 						timer: 2000,
 						background: "#fefefe",
@@ -38,6 +39,7 @@ const ModalCreateMataPelajaran = ({ handleModalCreateTrigger }) => {
 				1000
 			);
 		},
+		refetchQueries: [GetMataPelajaran],
 	});
 
 	const tambahMataPelajaran = (newMataPelajaran) => {
