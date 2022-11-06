@@ -99,14 +99,16 @@ const SiswaListItem = ({ data }) => {
 	return (
 		<tbody>
 			<tr className="border-b bg-white hover:bg-gray-50">
-				<th scope="row" className="whitespace-nowrap py-4 px-6 font-medium text-gray-900">
+				<td scope="row" className="whitespace-nowrap py-4 px-6 font-medium text-gray-900">
 					{no}
-				</th>
-				<th scope="row" className="whitespace-nowrap py-4 px-6 font-semibold text-gray-900">
+				</td>
+				<td scope="row" className="whitespace-nowrap py-4 px-6 font-semibold text-gray-900">
 					{nama_depan} {nama_belakang}
-				</th>
-				<td className="py-4 px-6 font-medium">{jenis_kelamin}</td>
-				<td className="py-4 px-6">
+				</td>
+				<td scope="row" className="py-4 px-6 font-medium">
+					{jenis_kelamin}
+				</td>
+				<td scope="row" className="py-4 px-6">
 					<div className="flex items-center space-x-4 text-sm">
 						<button onClick={handleModalEditTrigger}>
 							<PencilIcon className="h-6 w-6 text-blue-600 transition duration-75 hover:text-blue-700" />
