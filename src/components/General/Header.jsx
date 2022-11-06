@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import icon from "../../assets/img/svg/Icon.svg";
 import iconAvatar from "../../assets/img/png/icon-avatar.png";
+import Dropdown from "./Dropdown";
 
 const Header = () => {
 	const [modalTrigger, setModalTrigger] = useState(false);
@@ -31,6 +32,7 @@ const Header = () => {
 							<img src={iconAvatar} alt="avatar" />
 						</span>
 					</button>
+					{modalTrigger && <Dropdown />}
 				</div>
 			</div>
 		</header>
