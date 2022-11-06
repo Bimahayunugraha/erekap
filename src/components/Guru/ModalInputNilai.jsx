@@ -2,7 +2,7 @@ import React from "react";
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-const ModalInputNilai = ({ handleInputNilaiModalTrigger }) => {
+const ModalInputNilai = ({ handleInputNilaiModalTrigger, handleChange, handleUpdate, update }) => {
 	return (
 		<div className="relative z-50">
 			<div className="fixed inset-0 z-50 bg-gray-400 bg-opacity-50 transition-opacity"></div>
@@ -10,13 +10,12 @@ const ModalInputNilai = ({ handleInputNilaiModalTrigger }) => {
 			<div className="fixed inset-0 z-50 items-center justify-center overflow-y-auto">
 				<div className="flex w-full items-end justify-center px-4 py-20 sm:h-full sm:items-center sm:p-0 md:h-screen">
 					<div className="relative w-full max-w-xs">
-						<form className="rounded-lg bg-white shadow">
+						<form onSubmit={handleUpdate} className="rounded-lg bg-white shadow">
 							<div className="flex items-center justify-between rounded-t border-b p-4">
 								<h3 className="p-1.5 text-xl font-semibold text-gray-900 dark:text-white">Input Nilai</h3>
 								<button
 									type="button"
 									className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
-									data-modal-toggle="editUserModal"
 									onClick={handleInputNilaiModalTrigger}>
 									<XMarkIcon className="h-5 w-5" />
 								</button>
@@ -33,7 +32,8 @@ const ModalInputNilai = ({ handleInputNilaiModalTrigger }) => {
 										className="block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
 										placeholder="Masukkan nilai"
 										required
-										defaultValue="90"
+										defaultValue={update.nilai}
+										onChange={handleChange}
 									/>
 								</div>
 							</div>

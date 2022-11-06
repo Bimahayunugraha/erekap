@@ -17,11 +17,20 @@ import PenilaianPage from "../pages/Guru/PenilaianPage";
 import PenilaianDetailPage from "../pages/Guru/PenilaianDetailPage";
 import PrivateRouter from "./PrivateRouter";
 import ProtectedRouter from "./ProtectedRouter";
+import { Helmet } from "react-helmet";
 
 const SetupRouter = () => {
 	return (
 		<>
 			<BrowserRouter>
+				<Helmet>
+					<title></title>
+					<meta name="description" content="Melakukan rekap nilai" />
+					<meta
+						name="keywords"
+						content="Dashboard Admin, Dashboard Guru, Data Siswa, Data Mata Pelajaran, Data Guru, Data Pelajaran Diampu, Penilaian, Tambah Pelajaran Diampu"
+					/>
+				</Helmet>
 				<Routes>
 					<Route element={<ProtectedRouter />}>
 						<Route path="/" element={<LandingPage />} />

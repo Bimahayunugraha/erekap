@@ -2,7 +2,7 @@ import React from "react";
 
 import { InformationCircleIcon, TrashIcon, XCircleIcon } from "@heroicons/react/24/outline";
 
-const ModalDelete = ({ handleModalDeleteTrigger, guru, mataPelajaran, siswa }) => {
+const ModalDelete = ({ handleModalDeleteTrigger, handleDeleteSiswa, handleDeleteMataPelajaran, handleDeleteGuru, guru, mataPelajaran, siswa }) => {
 	return (
 		<div className="relative z-50">
 			<div className="fixed inset-0 z-50 bg-gray-400 bg-opacity-50 transition-opacity"></div>
@@ -18,7 +18,8 @@ const ModalDelete = ({ handleModalDeleteTrigger, guru, mataPelajaran, siswa }) =
 										<button
 											data-modal-toggle="popup-modal"
 											type="button"
-											className="mr-2 inline-flex items-center justify-center rounded-lg bg-red-100 px-5 py-2.5 text-center text-sm font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-4 focus:ring-red-300">
+											className="mr-2 inline-flex items-center justify-center rounded-lg bg-red-100 px-5 py-2.5 text-center text-sm font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-4 focus:ring-red-300"
+											onClick={handleDeleteSiswa}>
 											<TrashIcon className="mr-2 h-4 w-4" /> <span>Hapus</span>
 										</button>
 									)}
@@ -27,7 +28,8 @@ const ModalDelete = ({ handleModalDeleteTrigger, guru, mataPelajaran, siswa }) =
 										<button
 											data-modal-toggle="popup-modal"
 											type="button"
-											className="mr-2 inline-flex items-center justify-center rounded-lg bg-red-100 px-5 py-2.5 text-center text-sm font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-4 focus:ring-red-300">
+											className="mr-2 inline-flex items-center justify-center rounded-lg bg-red-100 px-5 py-2.5 text-center text-sm font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-4 focus:ring-red-300"
+											onClick={handleDeleteMataPelajaran}>
 											<TrashIcon className="mr-2 h-4 w-4" /> <span>Hapus</span>
 										</button>
 									)}
@@ -36,7 +38,8 @@ const ModalDelete = ({ handleModalDeleteTrigger, guru, mataPelajaran, siswa }) =
 										<button
 											data-modal-toggle="popup-modal"
 											type="button"
-											className="mr-2 inline-flex items-center justify-center rounded-lg bg-red-100 px-5 py-2.5 text-center text-sm font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-4 focus:ring-red-300">
+											className="mr-2 inline-flex items-center justify-center rounded-lg bg-red-100 px-5 py-2.5 text-center text-sm font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-4 focus:ring-red-300"
+											onClick={handleDeleteGuru}>
 											<TrashIcon className="mr-2 h-4 w-4" /> <span>Hapus</span>
 										</button>
 									)}

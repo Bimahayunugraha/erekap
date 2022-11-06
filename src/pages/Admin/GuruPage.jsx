@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import GuruList from "../../components/Admin/GuruList";
 import ModalCreateGuru from "../../components/Admin/ModalCreateGuru";
+import { Helmet } from "react-helmet";
 
 const GuruPage = () => {
 	const [modalCreateTrigger, setModalCreateTrigger] = useState(false);
@@ -13,6 +14,10 @@ const GuruPage = () => {
 
 	return (
 		<div>
+			<Helmet>
+				<title>Data Guru</title>
+				<meta name="description" content="Penilaian siswa" />
+			</Helmet>
 			<div className="flex items-center justify-between border-b border-gray-200 bg-white px-6 py-3">
 				<h2 className="text-xl font-bold text-gray-800">Data Guru</h2>
 				<button

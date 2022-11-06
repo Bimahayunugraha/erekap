@@ -1,8 +1,11 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
+import { AddUser } from "../graphqls/typeDefs/users.graphql";
 import { auth, db } from "../configs/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import Swal from "sweetalert2";
+import { useMutation } from "@apollo/client";
 import withReactContent from "sweetalert2-react-content";
+import { bcrypt } from "../utils/bcrypt";
 
 const MySwal = withReactContent(Swal);
 
@@ -15,9 +18,20 @@ const Alert = MySwal.mixin({
 });
 
 export default function Register() {
+	const [addUser] = useMutation(AddUser);
+
 	const register = async (name, email, password, role) => {
 		const res = await createUserWithEmailAndPassword(auth, email, password);
 		const user = res.user;
+
+		await addUser({
+			variables: {
+				id: user.uid,
+				nama: name,
+				email: email,
+				password: bcrypt(password),
+			},
+		});
 
 		await addDoc(collection(db, "users"), {
 			uid: user.uid,

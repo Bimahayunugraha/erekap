@@ -7,6 +7,7 @@ import Register from "../../hooks/useRegister";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const MySwal = withReactContent(Swal);
 
@@ -110,6 +111,10 @@ const RegisterPage = () => {
 
 	return (
 		<div className="mx-auto flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0">
+			<Helmet>
+				<title>Register Page</title>
+				<meta name="description" content="Melakukan rekap nilai" />
+			</Helmet>
 			<div className="w-full rounded-lg bg-white shadow dark:border sm:max-w-md md:mt-0 xl:max-w-xl xl:p-0">
 				<Link to="/" className="flex items-center justify-center pt-6 text-2xl font-semibold text-gray-900">
 					<img src={icon} className="h-12 w-12" alt="Logo" />
@@ -170,9 +175,7 @@ const RegisterPage = () => {
 								</div>
 							</div>
 							{loading ? (
-								<button
-									className="w-full rounded-lg bg-indigo-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300"
-									disabled={values}>
+								<button className="w-full rounded-lg bg-indigo-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300">
 									<PulseLoader size={7} color={"#ffffff"} />
 								</button>
 							) : (
