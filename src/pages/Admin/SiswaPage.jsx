@@ -23,7 +23,7 @@ const SiswaPage = () => {
 				</button>
 			</div>
 			<SiswaList />
-			{modalCreateTrigger && <ModalCreateSiswa handleModalCreateTrigger={handleModalCreateTrigger} modalTrigger={modalCreateTrigger} />}
+			{modalCreateTrigger && <ModalCreateSiswa handleModalCreateTrigger={handleModalCreateTrigger} />}
 		</div>
 	);
 };

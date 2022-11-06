@@ -12,7 +12,7 @@ const MataPelajaranListItem = () => {
 	return (
 		<tbody>
 			<tr className="border-b bg-white hover:bg-gray-50">
-				<th scope="row" className="whitespace-nowrap py-4 px-6 font-medium text-gray-900">
+				<th scope="row" className="whitespace-nowrap py-4 px-6 font-semibold text-gray-900">
 					Bahasa Indonesia
 				</th>
 				<td className="py-4 px-6">

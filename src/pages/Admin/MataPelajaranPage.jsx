@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { PlusIcon } from "@heroicons/react/24/outline";
 import MataPelajaranList from "../../components/Admin/MataPelajaranList";
+import ModalCreateMataPelajaran from "../../components/Admin/ModalCreateMataPelajaran";
 
 const MataPelajaranPage = () => {
 	const [modalCreateTrigger, setModalCreateTrigger] = useState(false);
@@ -22,6 +23,7 @@ const MataPelajaranPage = () => {
 				</button>
 			</div>
 			<MataPelajaranList />
+			{modalCreateTrigger && <ModalCreateMataPelajaran handleModalCreateTrigger={handleModalCreateTrigger} />}
 		</div>
 	);
 };
