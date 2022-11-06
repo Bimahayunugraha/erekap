@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import PelajaranDiampuInput from "../../components/Admin/PelajaranDiampuInput";
 
 const CreatePelajaranDiampuPage = () => {
 	return (
@@ -12,6 +13,7 @@ const CreatePelajaranDiampuPage = () => {
 				</Link>
 				<h2 className="ml-3 text-base font-bold text-gray-800">Tambah Pelajaran Diampu</h2>
 			</div>
+			<PelajaranDiampuInput />
 		</div>
 	);
 };
