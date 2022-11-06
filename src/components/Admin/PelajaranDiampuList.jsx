@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { PlusIcon } from "@heroicons/react/24/outline";
+import PelajaranDiampuListItem from "./PelajaranDiampuListItem";
 
 const PelajaranDiampuList = () => {
 	return (
@@ -16,6 +17,9 @@ const PelajaranDiampuList = () => {
 							<p className="text-xs font-medium leading-7 text-gray-600">Tambah pelajaran diampu</p>
 						</div>
 					</Link>
+				</div>
+				<div className="w-full px-4 lg:w-1/2 xl:w-1/5">
+					<PelajaranDiampuListItem />
 				</div>
 			</div>
 		</div>
