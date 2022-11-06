@@ -2,12 +2,18 @@ import React, { useState } from "react";
 
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import ModalEditSiswa from "./ModalEditSiswa";
+import ModalDelete from "./ModalDelete";
 
 const SiswaListItem = () => {
 	const [modalEditTrigger, setModalEditTrigger] = useState(false);
+	const [modaDeleteTrigger, setModaDeleteTrigger] = useState(false);
 
 	const handleModalEditTrigger = () => {
 		setModalEditTrigger(!modalEditTrigger);
+	};
+
+	const handleModalDeleteTrigger = () => {
+		setModaDeleteTrigger(!modaDeleteTrigger);
 	};
 
 	return (
@@ -25,12 +31,14 @@ const SiswaListItem = () => {
 						<button onClick={handleModalEditTrigger}>
 							<PencilIcon className="h-6 w-6 text-blue-600 transition duration-75 hover:text-blue-700" />
 						</button>
-						<button>
+						<button onClick={handleModalDeleteTrigger}>
 							<TrashIcon className="h-6 w-6 text-red-400 transition duration-75 hover:text-red-500" />
 						</button>
 					</div>
 
 					{modalEditTrigger && <ModalEditSiswa handleModalEditTrigger={handleModalEditTrigger} />}
+
+					{modaDeleteTrigger && <ModalDelete handleModalDeleteTrigger={handleModalDeleteTrigger} siswa />}
 				</td>
 			</tr>
 		</tbody>
