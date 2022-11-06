@@ -5,10 +5,10 @@ import SiswaList from "../../components/Admin/SiswaList";
 import ModalCreateSiswa from "../../components/Admin/ModalCreateSiswa";
 
 const SiswaPage = () => {
-	const [modalTrigger, setModalTrigger] = useState(false);
+	const [modalCreateTrigger, setModalCreateTrigger] = useState(false);
 
-	const handleModalTrigger = () => {
-		setModalTrigger(!modalTrigger);
+	const handleModalCreateTrigger = () => {
+		setModalCreateTrigger(!modalCreateTrigger);
 	};
 
 	return (
@@ -18,12 +18,12 @@ const SiswaPage = () => {
 				<button
 					type="button"
 					className="focus:shadow-outline rounded-lg bg-indigo-500 py-2 px-4 font-semibold text-white hover:bg-indigo-600 focus:outline-none"
-					onClick={handleModalTrigger}>
+					onClick={handleModalCreateTrigger}>
 					<PlusIcon className="h-5 w-5" />
 				</button>
 			</div>
 			<SiswaList />
-			{modalTrigger && <ModalCreateSiswa handleModalTrigger={handleModalTrigger} modalTrigger={modalTrigger} />}
+			{modalCreateTrigger && <ModalCreateSiswa handleModalCreateTrigger={handleModalCreateTrigger} modalTrigger={modalCreateTrigger} />}
 		</div>
 	);
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-const ModalCreateSiswa = ({ handleModalTrigger }) => {
+const ModalCreateSiswa = ({ handleModalCreateTrigger }) => {
 	return (
 		<div>
 			<div className="relative z-50">
@@ -18,7 +18,7 @@ const ModalCreateSiswa = ({ handleModalTrigger }) => {
 										type="button"
 										className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
 										data-modal-toggle="editUserModal"
-										onClick={handleModalTrigger}>
+										onClick={handleModalCreateTrigger}>
 										<XMarkIcon className="h-5 w-5" />
 									</button>
 								</div>
