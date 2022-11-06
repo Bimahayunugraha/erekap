@@ -17,7 +17,7 @@ module.exports = {
 				"2xl": "1320px",
 			},
 			backgroundImage: {
-				bgHero: "url('./src/assets/img/png/bg-hero.jpg')",
+				bgHero: "url('./src/assets/img/jpg/bg-hero.jpg')",
 			},
 		},
 	},
