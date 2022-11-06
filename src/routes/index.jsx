@@ -15,25 +15,31 @@ import CreatePelajaranDiampuPage from "../pages/Admin/CreatePelajaranDiampuPage"
 import PelajaranDiampuDetailPage from "../pages/Admin/PelajaranDiampuDetailPage";
 import PenilaianPage from "../pages/Guru/PenilaianPage";
 import PenilaianDetailPage from "../pages/Guru/PenilaianDetailPage";
+import PrivateRouter from "./PrivateRouter";
+import ProtectedRouter from "./ProtectedRouter";
 
 const SetupRouter = () => {
 	return (
 		<>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<LandingPage />} />
-					<Route path="/login" element={<LoginPage />} />
-					<Route path="/register" element={<RegisterPage />} />
-					<Route path="/" element={<Layout />}>
-						<Route path="/dashboard" element={<DashboardPage />} />
-						<Route path="/admin/data/siswa" element={<SiswaPage />} />
-						<Route path="/admin/data/mata-pelajaran" element={<MataPelajaranPage />} />
-						<Route path="/admin/data/guru" element={<GuruPage />} />
-						<Route path="/admin/data/pelajaran/diampu" element={<PelajaranDiampuPage />} />
-						<Route path="/admin/tambah/pelajaran/diampu" element={<CreatePelajaranDiampuPage />} />
-						<Route path="/admin/detail/pelajaran/diampu/:mata_pelajaran_id" element={<PelajaranDiampuDetailPage />} />
-						<Route path="/guru/penilaian" element={<PenilaianPage />} />
-						<Route path="/guru/detail/penilaian/pelajaran/:mata_pelajaran_id" element={<PenilaianDetailPage />} />
+					<Route element={<ProtectedRouter />}>
+						<Route path="/" element={<LandingPage />} />
+						<Route path="/login" element={<LoginPage />} />
+						<Route path="/register" element={<RegisterPage />} />
+					</Route>
+					<Route element={<PrivateRouter />}>
+						<Route path="/" element={<Layout />}>
+							<Route path="/dashboard" element={<DashboardPage />} />
+							<Route path="/admin/data/siswa" element={<SiswaPage />} />
+							<Route path="/admin/data/mata-pelajaran" element={<MataPelajaranPage />} />
+							<Route path="/admin/data/guru" element={<GuruPage />} />
+							<Route path="/admin/data/pelajaran/diampu" element={<PelajaranDiampuPage />} />
+							<Route path="/admin/tambah/pelajaran/diampu" element={<CreatePelajaranDiampuPage />} />
+							<Route path="/admin/detail/pelajaran/diampu/:mata_pelajaran_id" element={<PelajaranDiampuDetailPage />} />
+							<Route path="/guru/penilaian" element={<PenilaianPage />} />
+							<Route path="/guru/detail/penilaian/pelajaran/:mata_pelajaran_id" element={<PenilaianDetailPage />} />
+						</Route>
 					</Route>
 					<Route path="*" element={<NotFound />} />
 				</Routes>
