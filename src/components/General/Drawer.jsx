@@ -1,14 +1,20 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import icon from "../../assets/img/svg/Icon.svg";
-import { BookOpenIcon, ClipboardDocumentIcon, IdentificationIcon, Squares2X2Icon, UserPlusIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { PulseLoader } from "react-spinners";
 import { sidebarToggler } from "../../stores/features/sidebarSlice";
+import useUser from "../../hooks/useUser";
+import { isAuthorizedAdmin, isAuthorizedGuru } from "../../mocks/isAuthorized";
 
 const Drawer = () => {
 	const sidebarToggle = useSelector((state) => state.sidebar);
 	const dispatch = useDispatch();
+
+	const { id } = useParams();
+	const { role, loadingData } = useUser(id);
 
 	return (
 		<div className="md:hidden">
@@ -47,72 +53,54 @@ const Drawer = () => {
 					<span className="sr-only">Close menu</span>
 				</button>
 				<div className="overflow-y-auto py-4">
+					{loadingData && (
+						<div className="my-0 mx-auto flex items-center justify-center pt-5">
+							<PulseLoader size={10} color="#2563eb" />
+						</div>
+					)}
 					<ul>
-						<li>
-							<NavLink
-								to="/dashboard"
-								className={({ isActive }) =>
-									isActive
-										? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
-										: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-								}
-								onClick={() => dispatch(sidebarToggler())}>
-								<Squares2X2Icon className="ml-2 h-6 w-6 transition duration-75" />
-								<span className="ml-3 font-medium">Dashboard</span>
-							</NavLink>
-						</li>
-						<li>
-							<NavLink
-								to="/admin/data/siswa"
-								className={({ isActive }) =>
-									isActive
-										? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
-										: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-								}
-								onClick={() => dispatch(sidebarToggler())}>
-								<IdentificationIcon className="ml-2 h-6 w-6 transition duration-75" />
-								<span className="ml-3 font-medium">Siswa</span>
-							</NavLink>
-						</li>
-						<li>
-							<NavLink
-								to="/admin/data/mata-pelajaran"
-								className={({ isActive }) =>
-									isActive
-										? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
-										: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-								}
-								onClick={() => dispatch(sidebarToggler())}>
-								<BookOpenIcon className="ml-2 h-6 w-6 transition duration-75" />
-								<span className="ml-3 font-medium">Mata Pelajaran</span>
-							</NavLink>
-						</li>
-						<li>
-							<NavLink
-								to="/admin/data/guru"
-								className={({ isActive }) =>
-									isActive
-										? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
-										: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-								}
-								onClick={() => dispatch(sidebarToggler())}>
-								<UserPlusIcon className="ml-2 h-6 w-6 transition duration-75" />
-								<span className="ml-3 font-medium">Guru</span>
-							</NavLink>
-						</li>
-						<li>
-							<NavLink
-								to="/admin/data/pelajaran/diampu"
-								className={({ isActive }) =>
-									isActive
-										? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
-										: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-								}
-								onClick={() => dispatch(sidebarToggler())}>
-								<ClipboardDocumentIcon className="ml-2 h-6 w-6 transition duration-75" />
-								<span className="ml-3 font-medium">Pelajaran Diampu</span>
-							</NavLink>
-						</li>
+						{role == "admin" && (
+							<ul>
+								{isAuthorizedAdmin.map((item, idx) => {
+									return (
+										<li key={idx}>
+											<NavLink
+												to={item.path}
+												className={({ isActive }) =>
+													isActive
+														? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
+														: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
+												}
+												onClick={() => dispatch(sidebarToggler())}>
+												{item.icon}
+												<span className="ml-3 font-medium">{item.name}</span>
+											</NavLink>
+										</li>
+									);
+								})}
+							</ul>
+						)}
+						{role == "guru" && (
+							<ul>
+								{isAuthorizedGuru.map((item, idx) => {
+									return (
+										<li key={idx}>
+											<NavLink
+												to={item.path}
+												className={({ isActive }) =>
+													isActive
+														? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
+														: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
+												}
+												onClick={() => dispatch(sidebarToggler())}>
+												{item.icon}
+												<span className="ml-3 font-medium">{item.name}</span>
+											</NavLink>
+										</li>
+									);
+								})}
+							</ul>
+						)}
 					</ul>
 				</div>
 			</div>
