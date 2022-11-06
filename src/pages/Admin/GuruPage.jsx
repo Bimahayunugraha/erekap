@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { PlusIcon } from "@heroicons/react/24/outline";
 import GuruList from "../../components/Admin/GuruList";
+import ModalCreateGuru from "../../components/Admin/ModalCreateGuru";
 
 const GuruPage = () => {
 	const [modalCreateTrigger, setModalCreateTrigger] = useState(false);
@@ -22,6 +23,7 @@ const GuruPage = () => {
 				</button>
 			</div>
 			<GuruList />
+			{modalCreateTrigger && <ModalCreateGuru handleModalCreateTrigger={handleModalCreateTrigger} />}
 		</div>
 	);
 };
