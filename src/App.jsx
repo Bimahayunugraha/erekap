@@ -8,10 +8,11 @@ import { store } from "./stores";
 function App() {
 	return (
 		<>
-			<ApolloProvider client={client}></ApolloProvider>
-			<Provider store={store}>
-				<SetupRouter />
-			</Provider>
+			<ApolloProvider client={client}>
+				<Provider store={store}>
+					<SetupRouter />
+				</Provider>
+			</ApolloProvider>
 		</>
 	);
 }

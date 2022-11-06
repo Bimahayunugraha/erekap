@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import icon from "../../assets/img/svg/Icon.svg";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import icon from "../../assets/img/svg/Icon.svg";
+import { isNotAuthorized } from "../../mocks/isNotAuthorized";
 import { navbarToggler } from "../../stores/features/navbarSlice";
 import { scrolling } from "../../stores/features/scrollSlice";
 
@@ -56,30 +57,16 @@ const Navbar = () => {
 										: "absolute left-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg transition duration-300 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none"
 								}>
 								<ul className="block lg:flex">
-									<li className="group">
-										<a
-											href="#hero"
-											className="nav-links mx-8 flex py-2 text-base font-semibold text-gray-300 group-hover:text-primary"
-											onClick={() => dispatch(navbarToggler())}>
-											Home
-										</a>
-									</li>
-									<li className="group">
-										<a
-											href="#service"
-											className="nav-links mx-8 flex py-2 text-base font-semibold text-gray-300 group-hover:text-primary"
-											onClick={() => dispatch(navbarToggler())}>
-											Layanan
-										</a>
-									</li>
-									<li className="group">
-										<a
-											href="#contact"
-											className="nav-links mx-8 flex py-2 text-base font-semibold text-gray-300 group-hover:text-primary"
-											onClick={() => dispatch(navbarToggler())}>
-											Hubungi Kami
-										</a>
-									</li>
+									{isNotAuthorized.map((item, idx) => (
+										<li className="group" key={idx}>
+											<a
+												href={item.path}
+												className="nav-links mx-8 flex py-2 text-base font-semibold text-gray-400 group-hover:text-primary"
+												onClick={() => dispatch(navbarToggler())}>
+												{item.name}
+											</a>
+										</li>
+									))}
 								</ul>
 							</nav>
 							<div className="items-center lg:flex">
