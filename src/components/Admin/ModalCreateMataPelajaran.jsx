@@ -8,7 +8,7 @@ const ModalCreateMataPelajaran = ({ handleModalCreateTrigger }) => {
 			<div className="fixed inset-0 z-50 bg-gray-400 bg-opacity-50 transition-opacity"></div>
 
 			<div className="fixed inset-0 z-50 items-center justify-center overflow-y-auto">
-				<div className="flex w-full items-end justify-center pt-36 sm:items-center sm:p-0 md:h-screen">
+				<div className="flex w-full items-end justify-center py-20 sm:h-full sm:items-center sm:p-0 md:h-screen">
 					<div className="relative w-full max-w-xs">
 						<form className="rounded-lg bg-white shadow">
 							<div className="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600">

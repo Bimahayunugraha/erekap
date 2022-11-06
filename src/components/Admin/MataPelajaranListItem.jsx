@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { TrashIcon } from "@heroicons/react/24/outline";
+import ModalDelete from "./ModalDelete";
 
 const MataPelajaranListItem = () => {
 	const [modaDeleteTrigger, setModaDeleteTrigger] = useState(false);
@@ -21,6 +22,7 @@ const MataPelajaranListItem = () => {
 							<TrashIcon className="h-6 w-6 text-red-400 transition duration-75 hover:text-red-500" />
 						</button>
 					</div>
+					{modaDeleteTrigger && <ModalDelete handleModalDeleteTrigger={handleModalDeleteTrigger} mataPelajaran />}
 				</td>
 			</tr>
 		</tbody>
