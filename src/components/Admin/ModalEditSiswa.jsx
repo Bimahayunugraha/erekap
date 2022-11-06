@@ -1,7 +1,7 @@
 import React from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-const ModalEditSiswa = ({ handleModalEditTrigger }) => {
+const ModalEditSiswa = ({ handleModalEditTrigger, update, handleChange, handleUpdate }) => {
 	return (
 		<div className="relative z-50">
 			<div className="fixed inset-0 z-50 bg-gray-400 bg-opacity-50 transition-opacity"></div>
@@ -9,7 +9,7 @@ const ModalEditSiswa = ({ handleModalEditTrigger }) => {
 			<div className="fixed inset-0 z-50 items-center justify-center overflow-y-auto">
 				<div className="flex w-full items-end justify-center px-4 py-20 sm:h-full sm:items-center sm:p-0 md:h-screen">
 					<div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
-						<form className="rounded-lg bg-white shadow">
+						<form onSubmit={handleUpdate} className="rounded-lg bg-white shadow">
 							<div className="flex items-center justify-between rounded-t border-b p-4">
 								<h3 className="p-1.5 text-base font-semibold text-gray-900 lg:text-lg xl:text-xl">Edit Siswa</h3>
 								<button
@@ -32,7 +32,8 @@ const ModalEditSiswa = ({ handleModalEditTrigger }) => {
 										className="block w-full rounded-lg border border-gray-300 p-2 text-xs text-gray-900 placeholder-gray-500 placeholder:text-xs focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm md:p-2.5 md:placeholder:text-sm lg:p-2.5 xl:p-2.5"
 										placeholder="Masukkan nama depan siswa"
 										required
-										defaultValue="Bima"
+										defaultValue={update.nama_depan}
+										onChange={handleChange}
 									/>
 								</div>
 								<div>
@@ -46,7 +47,8 @@ const ModalEditSiswa = ({ handleModalEditTrigger }) => {
 										className="block w-full rounded-lg border border-gray-300 p-2 text-xs text-gray-900 placeholder-gray-500 placeholder:text-xs focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm md:p-2.5 md:placeholder:text-sm lg:p-2.5 xl:p-2.5"
 										placeholder="Masukkan nama depan siswa"
 										required
-										defaultValue="Nugraha"
+										defaultValue={update.nama_belakang}
+										onChange={handleChange}
 									/>
 								</div>
 								<div>
@@ -57,7 +59,8 @@ const ModalEditSiswa = ({ handleModalEditTrigger }) => {
 										id="jenis_kelamin"
 										name="jenis_kelamin"
 										className="block w-full rounded-lg border border-gray-300 p-2 text-xs text-gray-900 placeholder:text-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm md:p-2.5 md:placeholder:text-sm lg:p-2.5 xl:p-2.5"
-										defaultValue="Laki-laki">
+										defaultValue={update.jenis_kelamin}
+										onChange={handleChange}>
 										<option>Pilih jenis kelamin</option>
 										<option value="Laki-laki">Laki-laki</option>
 										<option value="Perempuan">Perempuan</option>

@@ -170,9 +170,7 @@ const RegisterPage = () => {
 								</div>
 							</div>
 							{loading ? (
-								<button
-									className="w-full rounded-lg bg-indigo-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300"
-									disabled={values}>
+								<button className="w-full rounded-lg bg-indigo-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300">
 									<PulseLoader size={7} color={"#ffffff"} />
 								</button>
 							) : (
