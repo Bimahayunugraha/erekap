@@ -45,7 +45,8 @@ const Drawer = ({ drawerTrigger, handledrawerTrigger }) => {
 									isActive
 										? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
 										: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-								}>
+								}
+								onClick={handledrawerTrigger}>
 								<Squares2X2Icon className="ml-2 h-6 w-6 transition duration-75" />
 								<span className="ml-3 font-medium">Dashboard</span>
 							</NavLink>
@@ -57,7 +58,8 @@ const Drawer = ({ drawerTrigger, handledrawerTrigger }) => {
 									isActive
 										? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
 										: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-								}>
+								}
+								onClick={handledrawerTrigger}>
 								<IdentificationIcon className="ml-2 h-6 w-6 transition duration-75" />
 								<span className="ml-3 font-medium">Siswa</span>
 							</NavLink>
@@ -69,7 +71,8 @@ const Drawer = ({ drawerTrigger, handledrawerTrigger }) => {
 									isActive
 										? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
 										: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-								}>
+								}
+								onClick={handledrawerTrigger}>
 								<BookOpenIcon className="ml-2 h-6 w-6 transition duration-75" />
 								<span className="ml-3 font-medium">Mata Pelajaran</span>
 							</NavLink>
@@ -81,7 +84,8 @@ const Drawer = ({ drawerTrigger, handledrawerTrigger }) => {
 									isActive
 										? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
 										: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-								}>
+								}
+								onClick={handledrawerTrigger}>
 								<UserPlusIcon className="ml-2 h-6 w-6 transition duration-75" />
 								<span className="ml-3 font-medium">Guru</span>
 							</NavLink>
@@ -93,7 +97,8 @@ const Drawer = ({ drawerTrigger, handledrawerTrigger }) => {
 									isActive
 										? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
 										: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-								}>
+								}
+								onClick={handledrawerTrigger}>
 								<ClipboardDocumentIcon className="ml-2 h-6 w-6 transition duration-75" />
 								<span className="ml-3 font-medium">Pelajaran Diampu</span>
 							</NavLink>

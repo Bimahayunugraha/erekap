@@ -5,6 +5,7 @@ import LoginPage from "../pages/General/LoginPage";
 import NotFound from "../pages/General/NotFoundPage";
 import RegisterPage from "../pages/General/RegisterPage";
 import Layout from "../components/General/Layout";
+import DashboardPage from "../pages/General/DashboardPage";
 
 const SetupRouter = () => {
 	return (
@@ -14,7 +15,9 @@ const SetupRouter = () => {
 					<Route path="/" element={<LandingPage />} />
 					<Route path="/login" element={<LoginPage />} />
 					<Route path="/register" element={<RegisterPage />} />
-					<Route path="/" element={<Layout />} />
+					<Route path="/" element={<Layout />}>
+						<Route path="/dashboard" element={<DashboardPage />} />
+					</Route>
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</BrowserRouter>
