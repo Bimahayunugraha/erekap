@@ -1,4 +1,5 @@
 import React from "react";
+import SiswaListItem from "./SiswaListItem";
 
 const SiswaList = () => {
 	return (
@@ -22,6 +23,7 @@ const SiswaList = () => {
 								</th>
 							</tr>
 						</thead>
+						<SiswaListItem />
 					</table>
 				</div>
 			</div>
