@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { PlusIcon } from "@heroicons/react/24/outline";
+import GuruList from "../../components/Admin/GuruList";
 
 const GuruPage = () => {
 	const [modalCreateTrigger, setModalCreateTrigger] = useState(false);
@@ -20,6 +21,7 @@ const GuruPage = () => {
 					<PlusIcon className="h-5 w-5" />
 				</button>
 			</div>
+			<GuruList />
 		</div>
 	);
 };
