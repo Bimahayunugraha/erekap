@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { ArrowUpIcon } from "@heroicons/react/24/outline";
+import { scrolling } from "../../stores/features/scrollSlice";
 
 const ToTop = () => {
-	const [scroll, setScroll] = useState(false);
+	const scroll = useSelector((state) => state.scroll);
+	const dispatch = useDispatch();
 
 	const handleScrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
@@ -10,9 +14,9 @@ const ToTop = () => {
 
 	const handleScrollVisibility = () => {
 		if (window.scrollY > 200) {
-			setScroll(true);
+			dispatch(scrolling(true));
 		} else {
-			setScroll(false);
+			dispatch(scrolling(false));
 		}
 	};
 
@@ -23,6 +27,7 @@ const ToTop = () => {
 			window.removeEventListener("scroll", handleScrollVisibility);
 		};
 	});
+
 	return (
 		<div>
 			<button

@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import icon from "../../assets/img/svg/Icon.svg";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { navbarToggler } from "../../stores/features/navbarSlice";
+import { scrolling } from "../../stores/features/scrollSlice";
 
 const Navbar = () => {
-	const [toggleIcon, setToggleIcon] = useState(false);
-	const [scroll, setScroll] = useState(false);
-
-	const handleToggle = () => {
-		setToggleIcon(!toggleIcon);
-	};
+	const navbarToggle = useSelector((state) => state.navbar);
+	const scroll = useSelector((state) => state.scroll);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		window.addEventListener("scroll", () => {
 			if (window.scrollY > 100) {
-				setScroll(true);
+				dispatch(scrolling(true));
 			} else {
-				setScroll(false);
+				dispatch(scrolling(false));
 			}
 		});
-	});
+	}, [dispatch]);
 
 	return (
 		<>
@@ -33,10 +33,15 @@ const Navbar = () => {
 				<div className="container">
 					<div className="relative flex items-center justify-between">
 						<div className="flex flex-wrap items-center px-4">
-							<button id="hamburger" name="hamburger" type="button" className="absolute block text-white lg:hidden" onClick={handleToggle}>
-								<Bars3Icon className={toggleIcon ? "hidden" : "hamburger my-2 block h-6 w-6 transition duration-300 ease-in-out"} />
+							<button
+								id="hamburger"
+								name="hamburger"
+								type="button"
+								className="absolute block text-white lg:hidden"
+								onClick={() => dispatch(navbarToggler())}>
+								<Bars3Icon className={navbarToggle ? "hidden" : "hamburger my-2 block h-6 w-6 transition duration-300 ease-in-out"} />
 
-								<XMarkIcon className={toggleIcon ? "hamburger my-2 block h-6 w-6 text-white transition duration-300 ease-in-out" : "hidden"} />
+								<XMarkIcon className={navbarToggle ? "hamburger my-2 block h-6 w-6 text-white transition duration-300 ease-in-out" : "hidden"} />
 							</button>
 							<Link to="/" className="nav-brand ml-10 flex flex-wrap items-center py-6 text-xl font-bold tracking-tight text-gray-50 lg:ml-0">
 								<img src={icon} className="mr-3 h-8 w-8" alt="Logo" />
@@ -46,7 +51,7 @@ const Navbar = () => {
 						<div className="flex items-center">
 							<nav
 								className={
-									toggleIcon
+									navbarToggle
 										? "absolute left-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 shadow-xl transition duration-300 ease-in-out lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none"
 										: "absolute left-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg transition duration-300 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none"
 								}>
@@ -55,7 +60,7 @@ const Navbar = () => {
 										<a
 											href="#hero"
 											className="nav-links mx-8 flex py-2 text-base font-semibold text-gray-300 group-hover:text-primary"
-											onClick={handleToggle}>
+											onClick={() => dispatch(navbarToggler())}>
 											Home
 										</a>
 									</li>
@@ -63,7 +68,7 @@ const Navbar = () => {
 										<a
 											href="#service"
 											className="nav-links mx-8 flex py-2 text-base font-semibold text-gray-300 group-hover:text-primary"
-											onClick={handleToggle}>
+											onClick={() => dispatch(navbarToggler())}>
 											Layanan
 										</a>
 									</li>
@@ -71,7 +76,7 @@ const Navbar = () => {
 										<a
 											href="#contact"
 											className="nav-links mx-8 flex py-2 text-base font-semibold text-gray-300 group-hover:text-primary"
-											onClick={handleToggle}>
+											onClick={() => dispatch(navbarToggler())}>
 											Hubungi Kami
 										</a>
 									</li>
