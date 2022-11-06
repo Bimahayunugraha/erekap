@@ -4,7 +4,7 @@ import Footer from "../../components/Guest/Footer";
 import Hero from "../../components/Guest/Hero";
 import Navbar from "../../components/Guest/Navbar";
 import Service from "../../components/Guest/Service";
-import ToTop from "../../components/ToTop";
+import ToTop from "../../components/General/ToTop";
 
 const LandingPage = () => {
 	return (
