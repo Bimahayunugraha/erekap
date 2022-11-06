@@ -1,9 +1,15 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
+
 import icon from "../../assets/img/svg/Icon.svg";
-import { BookOpenIcon, ClipboardDocumentIcon, IdentificationIcon, Squares2X2Icon, UserPlusIcon } from "@heroicons/react/24/outline";
+import { isAuthorizedAdmin, isAuthorizedGuru } from "../../mocks/isAuthorized";
+import { PulseLoader } from "react-spinners";
+import useUser from "../../hooks/useUser";
 
 const Sidebar = () => {
+	const { id } = useParams();
+	const { role, loadingData } = useUser(id);
+
 	return (
 		<div className="fixed z-30 hidden min-h-screen w-64 overflow-y-auto border-r border-gray-200 bg-white py-4 px-3 md:block">
 			<div className="relative">
@@ -11,67 +17,52 @@ const Sidebar = () => {
 					<img src={icon} className="mr-3 ml-2 h-6 w-6 sm:h-7" alt="logo" />
 					<span className="self-center whitespace-nowrap text-xl font-semibold text-blue-600">eRekap</span>
 				</Link>
+				{loadingData && (
+					<div className="my-0 mx-auto flex items-center justify-center pt-5">
+						<PulseLoader size={10} color="#2563eb" />
+					</div>
+				)}
 				<ul>
-					<li>
-						<NavLink
-							to="/dashboard"
-							className={({ isActive }) =>
-								isActive
-									? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
-									: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-							}>
-							<Squares2X2Icon className="ml-2 h-6 w-6 transition duration-75" />
-							<span className="ml-3 font-medium">Dashboard</span>
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/admin/data/siswa"
-							className={({ isActive }) =>
-								isActive
-									? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
-									: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-							}>
-							<IdentificationIcon className="ml-2 h-6 w-6 transition duration-75" />
-							<span className="ml-3 font-medium">Siswa</span>
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/admin/data/mata-pelajaran"
-							className={({ isActive }) =>
-								isActive
-									? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
-									: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-							}>
-							<BookOpenIcon className="ml-2 h-6 w-6 transition duration-75" />
-							<span className="ml-3 font-medium">Mata Pelajaran</span>
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/admin/data/guru"
-							className={({ isActive }) =>
-								isActive
-									? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
-									: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-							}>
-							<UserPlusIcon className="ml-2 h-6 w-6 transition duration-75" />
-							<span className="ml-3 font-medium">Guru</span>
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/admin/data/pelajaran/diampu"
-							className={({ isActive }) =>
-								isActive
-									? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
-									: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
-							}>
-							<ClipboardDocumentIcon className="ml-2 h-6 w-6 transition duration-75" />
-							<span className="ml-3 font-medium">Pelajaran Diampu</span>
-						</NavLink>
-					</li>
+					{role == "admin" && (
+						<ul>
+							{isAuthorizedAdmin.map((item, idx) => {
+								return (
+									<li key={idx}>
+										<NavLink
+											to={item.path}
+											className={({ isActive }) =>
+												isActive
+													? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
+													: "flex items-center rounded-lg p-2 text-base font-normal text-gray-600 hover:bg-indigo-100"
+											}>
+											{item.icon}
+											<span className="ml-3 font-medium">{item.name}</span>
+										</NavLink>
+									</li>
+								);
+							})}
+						</ul>
+					)}
+					{role == "guru" && (
+						<ul>
+							{isAuthorizedGuru.map((item, idx) => {
+								return (
+									<li key={idx}>
+										<NavLink
+											to={item.path}
+											className={({ isActive }) =>
+												isActive
+													? "flex items-center rounded-lg bg-indigo-100 p-2 text-base font-semibold text-indigo-700 hover:bg-indigo-200"
+													: "flex items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-indigo-100"
+											}>
+											{item.icon}
+											<span className="ml-3 font-medium">{item.name}</span>
+										</NavLink>
+									</li>
+								);
+							})}
+						</ul>
+					)}
 				</ul>
 			</div>
 		</div>

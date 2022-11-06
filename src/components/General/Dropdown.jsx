@@ -1,12 +1,17 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import useUser from "../../hooks/useUser";
+import { PulseLoader } from "react-spinners";
 
 const Dropdown = () => {
 	const navigate = useNavigate();
 	const { logout } = useAuth();
+
+	const { id } = useParams();
+	const { name, loadingData } = useUser(id);
 
 	const handleLogout = () => {
 		const swalWithBootstrapButtons = Swal.mixin({
@@ -53,7 +58,14 @@ const Dropdown = () => {
 	return (
 		<div className="absolute right-2 top-full z-10 mt-2 w-44 divide-y divide-gray-100 rounded bg-white shadow">
 			<div className="py-1">
-				<h4 className="block border-b border-gray-200 px-4 py-2 text-center font-semibold text-gray-600 hover:bg-gray-100"></h4>
+				<h4 className="block border-b border-gray-200 px-4 py-2 text-center font-semibold text-gray-600 hover:bg-gray-100">
+					{loadingData && (
+						<div className="my-0 mx-auto flex items-center justify-center pt-5">
+							<PulseLoader size={5} color="#2563eb" />
+						</div>
+					)}
+					{name}
+				</h4>
 				<button className="block w-full py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" onClick={handleLogout}>
 					Logout
 				</button>
