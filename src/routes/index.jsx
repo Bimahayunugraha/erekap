@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "../pages/Guest/LandingPage";
-import LoginPage from "../pages/LoginPage";
-import NotFound from "../pages/NotFound";
-import RegisterPage from "../pages/RegisterPage";
+import LoginPage from "../pages/General/LoginPage";
+import NotFound from "../pages/General/NotFoundPage";
+import RegisterPage from "../pages/General/RegisterPage";
 
 const SetupRouter = () => {
 	return (

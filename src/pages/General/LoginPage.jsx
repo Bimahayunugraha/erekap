@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import icon from "../assets/img/svg/Icon.svg";
+import icon from "../../assets/img/svg/Icon.svg";
 
 const LoginPage = () => {
 	return (
