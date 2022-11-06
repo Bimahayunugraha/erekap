@@ -2,6 +2,7 @@ import React from "react";
 
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import PelajaranDiampuDetailList from "../../components/Admin/PelajaranDiampuDetailList";
 
 const PelajaranDiampuDetailPage = () => {
 	return (
@@ -12,7 +13,9 @@ const PelajaranDiampuDetailPage = () => {
 				</Link>
 				<h2 className="ml-3 text-base font-bold text-gray-800">Detail Pelajaran Diampu</h2>
 			</div>
-			<div className="container"></div>
+			<div className="container">
+				<PelajaranDiampuDetailList />
+			</div>
 		</div>
 	);
 };
