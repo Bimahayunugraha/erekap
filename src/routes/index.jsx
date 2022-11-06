@@ -14,6 +14,7 @@ import PelajaranDiampuPage from "../pages/Admin/PelajaranDiampuPage";
 import CreatePelajaranDiampuPage from "../pages/Admin/CreatePelajaranDiampuPage";
 import PelajaranDiampuDetailPage from "../pages/Admin/PelajaranDiampuDetailPage";
 import PenilaianPage from "../pages/Guru/PenilaianPage";
+import PenilaianDetailPage from "../pages/Guru/PenilaianDetailPage";
 
 const SetupRouter = () => {
 	return (
@@ -32,6 +33,7 @@ const SetupRouter = () => {
 						<Route path="/admin/tambah/pelajaran/diampu" element={<CreatePelajaranDiampuPage />} />
 						<Route path="/admin/detail/pelajaran/diampu/:mata_pelajaran_id" element={<PelajaranDiampuDetailPage />} />
 						<Route path="/guru/penilaian" element={<PenilaianPage />} />
+						<Route path="/guru/detail/penilaian/pelajaran/:mata_pelajaran_id" element={<PenilaianDetailPage />} />
 					</Route>
 					<Route path="*" element={<NotFound />} />
 				</Routes>
