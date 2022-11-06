@@ -1,4 +1,5 @@
 import React from "react";
+import MataPelajaranListItem from "./MataPelajaranListItem";
 
 const MataPelajaranList = () => {
 	return (
@@ -15,6 +16,7 @@ const MataPelajaranList = () => {
 							</th>
 						</tr>
 					</thead>
+					<MataPelajaranListItem />
 				</table>
 			</div>
 		</div>
