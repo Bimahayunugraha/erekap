@@ -25,22 +25,25 @@ const PelajaranDiampuDetailList = ({ dataSiswa, dataGuru }) => {
 					</div>
 				</div>
 			</div>
-			<div className="mt-4 rounded-md border border-dashed border-gray-100 p-5">
-				<div className="grid grid-cols-2 gap-x-2 md:mb-0 md:grid-cols-3 lg:mb-0 xl:grid-cols-6">
-					{dataSiswa?.map((item) => {
-						return (
-							<div className="mb-4 flex flex-col items-center" key={item.id}>
-								<div className="relative flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 p-1 ring-2 ring-gray-300 lg:h-8 lg:w-8 ">
-									<span className="text-xs md:text-xs lg:text-sm">{getInitialName(item.siswa.nama_depan, item.siswa.nama_belakang)}</span>
+			<div className="my-4 block rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+				<h6 className="mb-2 text-sm font-medium text-gray-600 lg:text-base">Daftar Siswa</h6>
+				<div className="mt-4 rounded-md border-2 border-dashed border-gray-100 p-5">
+					<div className="grid grid-cols-2 gap-x-2 md:mb-0 md:grid-cols-3 lg:mb-0 xl:grid-cols-6">
+						{dataSiswa?.map((item) => {
+							return (
+								<div className="mb-4 flex flex-col items-center" key={item.id}>
+									<div className="relative flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 p-1 ring-2 ring-gray-300 lg:h-8 lg:w-8 ">
+										<span className="text-xs md:text-xs lg:text-sm">{getInitialName(item.siswa.nama_depan, item.siswa.nama_belakang)}</span>
+									</div>
+									<div className="mt-3">
+										<p className="text-[10px] font-medium text-gray-900 md:text-xs lg:text-xs xl:text-sm">
+											{item.siswa.nama_depan} {item.siswa.nama_belakang}
+										</p>
+									</div>
 								</div>
-								<div className="mt-3">
-									<p className="text-[10px] font-medium text-gray-900 md:text-xs lg:text-xs xl:text-sm">
-										{item.siswa.nama_depan} {item.siswa.nama_belakang}
-									</p>
-								</div>
-							</div>
-						);
-					})}
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		</div>
