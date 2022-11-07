@@ -26,7 +26,8 @@ const ModalInputNilai = ({ handleInputNilaiModalTrigger, handleChange, handleUpd
 										<span className="block after:ml-1 after:text-red-500 after:content-['*']">Nilai</span>
 									</label>
 									<input
-										type="text"
+										type="number"
+										min="1"
 										name="nilai"
 										id="nilai"
 										className="block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
