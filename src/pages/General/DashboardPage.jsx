@@ -26,7 +26,7 @@ const DashboardPage = () => {
 						<meta name="description" content="Penilaian siswa" />
 					</Helmet>
 					<div className="flex items-center border-b border-gray-200 bg-white px-6 py-3">
-						<h2 className="text-xl font-bold text-gray-800">Dashboard</h2>
+						<h2 className="text-xl font-bold text-gray-800">Dashboard Admin</h2>
 					</div>
 					<div className="container mx-auto py-4 px-6">
 						<div className="rounded-lg bg-white p-6 shadow">
@@ -52,7 +52,7 @@ const DashboardPage = () => {
 						<meta name="description" content="Penilaian siswa" />
 					</Helmet>
 					<div className="flex items-center border-b border-gray-200 bg-white px-6 py-3">
-						<h2 className="text-xl font-bold text-gray-800">Dashboard</h2>
+						<h2 className="text-xl font-bold text-gray-800">Dashboard Guru</h2>
 					</div>
 					<div className="container mx-auto py-4 px-6">
 						<div className="rounded-lg bg-white p-6 shadow">

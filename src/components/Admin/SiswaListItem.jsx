@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 
-import { DeleteSiswa, EditSiswa, GetSiswa } from "../../graphqls/typeDefs/siswa.graphql";
+import { DeleteSiswa, EditSiswa } from "../../graphqls/typeDefs/siswa.graphql";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import ModalEditSiswa from "./ModalEditSiswa";
 import ModalDelete from "./ModalDelete";
@@ -20,6 +20,20 @@ const SiswaListItem = ({ data }) => {
 	const [modaDeleteTrigger, setModaDeleteTrigger] = useState(false);
 	const [update, setUpdate] = useState(baseUpdate);
 	const [updateSiswa] = useMutation(EditSiswa, {
+		onError: () => {
+			setTimeout(
+				() =>
+					Swal.fire({
+						icon: "error",
+						title: "Gagal mengedit data",
+						text: "Nama siswa tidak boleh sama",
+						showConfirmButton: false,
+						timer: 2000,
+						background: "#fefefe",
+					}),
+				1000
+			);
+		},
 		onCompleted: () => {
 			setTimeout(
 				() =>
@@ -62,7 +76,6 @@ const SiswaListItem = ({ data }) => {
 				1000
 			);
 		},
-		refetchQueries: [GetSiswa],
 	});
 
 	const siswaUpdate = (editSiswa) => {
