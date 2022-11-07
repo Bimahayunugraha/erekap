@@ -203,6 +203,7 @@ const ModalCreateGuru = ({ handleModalCreateTrigger }) => {
 												type="number"
 												name="nip"
 												id="nip"
+												min="1"
 												className="block w-full rounded-lg border border-gray-300 p-2 text-xs text-gray-900 placeholder-gray-500 placeholder:text-xs focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:p-2.5 sm:text-sm md:p-2.5 md:placeholder:text-sm lg:p-2.5 xl:p-2.5"
 												placeholder="Masukkan nip"
 												value={data.nip}
@@ -235,6 +236,7 @@ const ModalCreateGuru = ({ handleModalCreateTrigger }) => {
 												type="number"
 												name="nomor_telepon"
 												id="nomor_telepon"
+												min="1"
 												className="block w-full rounded-lg border border-gray-300 p-2 text-xs text-gray-900 placeholder-gray-500 placeholder:text-xs focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:p-2.5 sm:text-sm md:p-2.5 md:placeholder:text-sm lg:p-2.5 xl:p-2.5"
 												placeholder="Masukkan nomor telepon"
 												value={data.nomor_telepon}
