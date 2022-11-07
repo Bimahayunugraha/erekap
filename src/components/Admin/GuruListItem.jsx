@@ -21,6 +21,20 @@ const GuruListItem = ({ data }) => {
 	const [modaDeleteTrigger, setModaDeleteTrigger] = useState(false);
 	const [update, setUpdate] = useState(baseUpdate);
 	const [updateGuru] = useMutation(EditGuru, {
+		onError: () => {
+			setTimeout(
+				() =>
+					Swal.fire({
+						icon: "error",
+						title: "Gagal mengedit data",
+						text: "Nama guru, nip, atau nomor telepon tidak boleh sama",
+						showConfirmButton: false,
+						timer: 2000,
+						background: "#fefefe",
+					}),
+				1500
+			);
+		},
 		onCompleted: () => {
 			setTimeout(
 				() =>

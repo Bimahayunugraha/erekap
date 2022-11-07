@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation, useSubscription } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 
 import { AddGuruPelajaran, addSiswaPelajaranNilai, GetDetailPelajaranDiampu } from "../../graphqls/typeDefs/pelajaranDiampu.graphql";
-import { GetMataPelajaran } from "../../graphqls/typeDefs/mataPelajaran.graphql";
-import { GetSiswa } from "../../graphqls/typeDefs/siswa.graphql";
-import { GetGuru } from "../../graphqls/typeDefs/guru.graphql";
+import { SubscriptionMataPelajaran } from "../../graphqls/typeDefs/mataPelajaran.graphql";
+import { SubscriptionSiswa } from "../../graphqls/typeDefs/siswa.graphql";
+import { SubscriptionGuru } from "../../graphqls/typeDefs/guru.graphql";
 import { PulseLoader } from "react-spinners";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
@@ -13,9 +13,9 @@ import { Helmet } from "react-helmet";
 const PelajaranDiampuInput = () => {
 	const [data, setData] = useState([]);
 	const navigate = useNavigate();
-	const { data: dataMataPelajaran } = useQuery(GetMataPelajaran);
-	const { data: dataGuru } = useQuery(GetGuru);
-	const { data: dataSiswa, loading: loadingDataSiswa } = useQuery(GetSiswa);
+	const { data: dataMataPelajaran } = useSubscription(SubscriptionMataPelajaran);
+	const { data: dataGuru } = useSubscription(SubscriptionGuru);
+	const { data: dataSiswa, loading: loadingDataSiswa } = useSubscription(SubscriptionSiswa);
 
 	const [addGuruPelajaran, { error: errorGuruPelajaran }] = useMutation(AddGuruPelajaran);
 	const [addSiswaPelajaran, { error: errorSiswaPelajaran }] = useMutation(addSiswaPelajaranNilai, {
@@ -122,7 +122,7 @@ const PelajaranDiampuInput = () => {
 								onChange={handleChange}
 								value={data.guru_id}>
 								<option>Pilih guru</option>
-								{dataGuru?.erekap_guru.map((item) => {
+								{dataGuru?.erekap_guru_aggregate.nodes.map((item) => {
 									return (
 										<option key={item.id} value={item.id}>
 											{item.nama_depan} {item.nama_belakang}

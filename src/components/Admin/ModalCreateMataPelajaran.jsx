@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { AddMataPelajaran, GetMataPelajaran } from "../../graphqls/typeDefs/mataPelajaran.graphql";
+import { AddMataPelajaran } from "../../graphqls/typeDefs/mataPelajaran.graphql";
 import Swal from "sweetalert2";
 
 const ModalCreateMataPelajaran = ({ handleModalCreateTrigger }) => {
@@ -39,7 +39,6 @@ const ModalCreateMataPelajaran = ({ handleModalCreateTrigger }) => {
 				1000
 			);
 		},
-		refetchQueries: [GetMataPelajaran],
 	});
 
 	const tambahMataPelajaran = (newMataPelajaran) => {
