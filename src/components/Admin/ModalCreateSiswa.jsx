@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { AddSiswa, GetSiswa } from "../../graphqls/typeDefs/siswa.graphql";
+import { AddSiswa } from "../../graphqls/typeDefs/siswa.graphql";
 import Swal from "sweetalert2";
 
 const ModalCreateSiswa = ({ handleModalCreateTrigger }) => {
@@ -49,7 +49,6 @@ const ModalCreateSiswa = ({ handleModalCreateTrigger }) => {
 				1000
 			);
 		},
-		refetchQueries: [GetSiswa],
 	});
 
 	const regexNameValidation = /^[a-zA-Z\s,.'-]*$/;

@@ -100,8 +100,6 @@ const ModalCreateGuru = ({ handleModalCreateTrigger }) => {
 				setErrors({ ...errors, nip: "Nip harus diisi" });
 			} else if (value.length <= 13) {
 				setErrors({ ...errors, nip: "Nip harus lebih dari 13 karakter" });
-			} else if (value.length >= 18) {
-				setErrors({ ...errors, nip: "Nip harus kurang dari 18 karakter" });
 			} else {
 				setErrors({ ...errors, nip: "" });
 			}
@@ -114,8 +112,6 @@ const ModalCreateGuru = ({ handleModalCreateTrigger }) => {
 				setErrors({ ...errors, nomor_telepon: "Nomor telepon harus diisi" });
 			} else if (value.length <= 11) {
 				setErrors({ ...errors, nomor_telepon: "Nomor telepon harus lebih dari 11 karakter" });
-			} else if (value.length >= 13) {
-				setErrors({ ...errors, nomor_telepon: "Nomor telepon harus kurang dari 13 karakter" });
 			} else {
 				setErrors({ ...errors, nomor_telepon: "" });
 			}
@@ -140,6 +136,12 @@ const ModalCreateGuru = ({ handleModalCreateTrigger }) => {
 			setData(dataGuru);
 		} else {
 			alert("Terdapat data yang kosong");
+		}
+	};
+
+	const maxLengthCheck = (e) => {
+		if (e.target.value.length > e.target.maxLength) {
+			e.target.value = e.target.value.slice(0, e.target.maxLength);
 		}
 	};
 
@@ -203,6 +205,9 @@ const ModalCreateGuru = ({ handleModalCreateTrigger }) => {
 												type="number"
 												name="nip"
 												id="nip"
+												min="1"
+												maxLength="18"
+												onInput={maxLengthCheck}
 												className="block w-full rounded-lg border border-gray-300 p-2 text-xs text-gray-900 placeholder-gray-500 placeholder:text-xs focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:p-2.5 sm:text-sm md:p-2.5 md:placeholder:text-sm lg:p-2.5 xl:p-2.5"
 												placeholder="Masukkan nip"
 												value={data.nip}
@@ -235,6 +240,9 @@ const ModalCreateGuru = ({ handleModalCreateTrigger }) => {
 												type="number"
 												name="nomor_telepon"
 												id="nomor_telepon"
+												min="1"
+												maxLength="12"
+												onInput={maxLengthCheck}
 												className="block w-full rounded-lg border border-gray-300 p-2 text-xs text-gray-900 placeholder-gray-500 placeholder:text-xs focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:p-2.5 sm:text-sm md:p-2.5 md:placeholder:text-sm lg:p-2.5 xl:p-2.5"
 												placeholder="Masukkan nomor telepon"
 												value={data.nomor_telepon}

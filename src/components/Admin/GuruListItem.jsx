@@ -21,6 +21,20 @@ const GuruListItem = ({ data }) => {
 	const [modaDeleteTrigger, setModaDeleteTrigger] = useState(false);
 	const [update, setUpdate] = useState(baseUpdate);
 	const [updateGuru] = useMutation(EditGuru, {
+		onError: () => {
+			setTimeout(
+				() =>
+					Swal.fire({
+						icon: "error",
+						title: "Gagal mengedit data",
+						text: "Nama guru, nip, atau nomor telepon tidak boleh sama",
+						showConfirmButton: false,
+						timer: 2000,
+						background: "#fefefe",
+					}),
+				1500
+			);
+		},
 		onCompleted: () => {
 			setTimeout(
 				() =>
@@ -82,6 +96,12 @@ const GuruListItem = ({ data }) => {
 		setModaDeleteTrigger(!modaDeleteTrigger);
 	};
 
+	const maxLengthCheck = (e) => {
+		if (e.target.value.length > e.target.maxLength) {
+			e.target.value = e.target.value.slice(0, e.target.maxLength);
+		}
+	};
+
 	return (
 		<tbody>
 			<tr className="border-b bg-white hover:bg-gray-50">
@@ -104,7 +124,13 @@ const GuruListItem = ({ data }) => {
 						</button>
 					</div>
 					{modalEditTrigger && (
-						<ModalEditGuru handleModalEditTrigger={handleModalEditTrigger} update={update} handleUpdate={handleUpdate} handleChange={handleChange} />
+						<ModalEditGuru
+							handleModalEditTrigger={handleModalEditTrigger}
+							update={update}
+							handleUpdate={handleUpdate}
+							handleChange={handleChange}
+							maxLengthCheck={maxLengthCheck}
+						/>
 					)}
 
 					{modaDeleteTrigger && (
