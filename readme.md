@@ -1,18 +1,27 @@
-# eRekap merupakan sebuah website untuk melakukan rekap nilai
+# eRekap is a a website for recap and input students grades.
 
-## Penjelasan singkat tentang website ini
+## Short description of this website
 
-Website ini digunakan untuk mengelola data dan melakukan input nilai. Dalam website ini tersedia untuk role admin dan guru. Admin dapat mengelola data seperti data siswa, guru, mata pelajaran, dan pelajaran diampu. Sedangkan, guru dapat melakukan input nilai.
+This website is used to manage data, input grades, and recap grades for students. This website is available for admin and teacher roles. Admin can manage data such as student, teacher, subject, and taught data. Meanwhile, the teacher can input the grades. This website is build with `React Js`, `Vite`, `Tailwind CSS`, `GraphQL`, `Apollo`, and several libraries.
 
-## Fitur yang ada pada website ini
+## Features on this website
 
-1. Mengelola data siswa
-2. Mengelola data guru
-3. Mengelola data mata pelajaran
-4. Mengelola data pelajaran yang diampu oleh siswa dan guru
-5. Input nilai siswa
+1. Manage student data
+2. Manage teacher data
+3. Manage subject data
+4. Manage lesson data taught by students and teachers
+5. Input student grades
 
-## Structure Folder
+## How to try this website
+
+1. Clone this project by type command `git clone https://github.com/Bimahayunugraha/erekap.git`.
+2. After clone success, then type command `cd erekap` to enter the main folder.
+3. After that type command `code .` to open this project in Visual Studio Code
+4. On your Visual Studio Code type command `npm install` to install all modules that used ini this project.
+5. Last step is run this project by type command `npm run dev`.
+6. Finally you can try this website and happy testing.
+
+## Structure folder
 
 ```
 ┌── public
@@ -130,3 +139,7 @@ Website ini digunakan untuk mengelola data dan melakukan input nilai. Dalam webs
 ├── tailwind.config.cjs
 └── vite.config.js
 ```
+
+## Preview website
+
+![preview-website](./src/assets/img/png/preview-website.png)
